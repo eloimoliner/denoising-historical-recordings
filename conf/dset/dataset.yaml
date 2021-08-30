@@ -1,0 +1,13 @@
+dset:
+  path_music_train: [ "/scratch/work/molinee2/datasets/MusicNet_with_opera/train"]
+  path_music_validation: ["/scratch/work/molinee2/datasets/MusicNet_with_opera/validation"]
+  path_music_test: ["/scratch/work/molinee2/datasets/MusicNet_extended/test"]
+
+  path_piano_test: ["/scratch/work/molinee2/datasets/MusicNet_with_opera/test/piano"]
+  path_strings_test: ["/scratch/work/molinee2/datasets/MusicNet_with_opera/test/strings"]
+  path_orchestra_test: ["/scratch/work/molinee2/datasets/MusicNet_with_opera/test/orchestra"]
+  path_opera_test: ["/scratch/work/molinee2/datasets/MusicNet_with_opera/test/opera"]
+
+  path_noise: "/scratch/work/molinee2/datasets/noise_set_refined_last" #path with noise samples. There must be an info.csv file there
+  path_recordings: "/scratch/work/molinee2/datasets/real_noisy_data_test" #path with real noisy recordings. There must be an audio_files.txt file there
+        

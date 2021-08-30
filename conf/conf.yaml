@@ -1,0 +1,112 @@
+defaults:
+  - dset: dataset
+  - hydra/job_logging: colorlog
+  - hydra/hydra_logging: colorlog
+
+path_experiment: "non-specified_name" #there should be a better way to do this 
+tensorboard_logs: "/scratch/work/molinee2/tensorboard_logs/unet_historical" #path with tensorboard
+# Dataset related
+fs: 44100  #default is 44100, better NEVER change
+seg_len_s_train: 5 #length of the train (and val) segments in seconds
+freq_inference: 10 #we do inference after * epochs
+seg_len_s_test: 15 #lenum_test_segments: 10 #number of test segments (inferenced every epoch)
+num_real_test_segments: 5 #number of real recordings inferenced every epoch
+num_test_segments: 15
+buffer_size: 1000 # buffer size for shuffling datasets (train and val)
+# Dataset Augmentation
+overlap: 0   #overlap when extracting audio segments, default is 0, augment if more data is needed
+
+# Logging and printing, and does not impact training
+#device: cuda
+verbose: 0
+use_tensorboard: True
+use_soft_denoising: False
+
+
+num_workers: 10
+
+
+# Checkpointing, by default automatically load last checkpoint
+checkpoint: true
+continue_from: '' # Path the a checkpoint.th file to start from.
+                  # this is not used in the name of the experiment!
+                  # so use a dummy=something not to mixup experiments.
+continue_best: false  # continue from best, not last state if continue_from is set.
+only_inference: false
+
+# Optimization related
+optim: adam
+lr: 1e-4 #used
+variable_lr: True
+beta1: 0.5 #used
+beta2: 0.9 #used
+
+loss: "mae"  #choose loss: 
+
+epochs: 73
+batch_size: 16
+val_take: -1
+steps_per_epoch: 1000
+
+
+sp:
+  method: "wiener"
+
+#STFT parameteres
+stft:
+  win_size: 2048     #STFT window size
+  hop_size:  512
+
+#inference param
+inference:
+  audio: None
+# Models
+model: unet # either demucs or dwave
+unet:
+  activation: "elu"
+  use_csff: False
+  use_SAM: True
+  use_cam: False
+  use_fam: False
+  use_fencoding: True
+  use_tdf: False
+  use_alttdfs: False
+  num_tfc: 3
+  num_stages: 3
+  depth: 6
+  f_dim: 1025 #hardcoded, depends on the stft window
+
+
+
+# Hydra config
+hydra:
+  job:
+    config:
+      # configuration for the ${hydra.job.override_dirname} runtime variable
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        # Remove all paths, as the / in them would mess up things
+        # Remove params that would not impact the training itself
+        # Remove all slurm and submit params.
+        # This is ugly I know...
+        exclude_keys: ['path_experiment',
+          'hydra.job_logging.handles.file.filename']
+  job_logging:
+    handlers:
+      file:
+        class: logging.FileHandler
+        mode: w
+        formatter: colorlog
+        filename: trainer.log
+      console:
+        class: logging.StreamHandler
+        formatter: colorlog
+        stream: ext://sys.stderr
+
+  hydra_logging:
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: colorlog
+        stream: ext://sys.stderr
