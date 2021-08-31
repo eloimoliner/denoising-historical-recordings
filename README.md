@@ -12,6 +12,9 @@ abstract here
 width="400px"></p>
 
 ## Requirements
+You will need at least python 3.7. See ´requirements.txt´ for the required package versions.
+
+To install the environment through anaconda, follow the instructions:
 
     conda env update -f environment.yml
     conda activate historical_denoiser
