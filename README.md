@@ -30,5 +30,5 @@ If the environment is installed correctly, you can denoise an audio file by runn
 
     bash inference.sh $filename
     
-A ".wav" file with the denoised version, as well as the residual noise and the original signal in "mono" will be stored in the same directory as the input file.
+A ".wav" file with the denoised version, as well as the residual noise and the original signal in "mono", will be stored in the same directory as the input file.
 ## Training
