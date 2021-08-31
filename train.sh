@@ -1,9 +1,9 @@
 #!/bin/bash
 
-module load anaconda
+#module load anaconda
 #module load matlab/r2020b
 #
-source activate /scratch/work/molinee2/conda_envs/unet_env
+#source activate /scratch/work/molinee2/conda_envs/unet_env
 
 n=1
 PATH_EXPERIMENT=/scratch/work/molinee2/unet_dir/unet_denoising_github/experiments/${n}

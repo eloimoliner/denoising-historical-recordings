@@ -7,7 +7,6 @@ logger = logging.getLogger(__name__)
 def run(args):
     import unet
     import tensorflow as tf
-    import tensorflow_addons as tfa
     import  dataset_loader
     from tensorflow.keras.optimizers import Adam
     import soundfile as sf

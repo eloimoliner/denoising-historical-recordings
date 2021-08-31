@@ -1,4 +1,3 @@
-from typing import Tuple, Dict
 import ast
 
 import tensorflow as tf
@@ -7,7 +6,6 @@ import os
 import numpy as np
 from scipy.fft import fft, ifft
 import soundfile as sf
-import librosa
 import math
 import pandas as pd
 import scipy as sp
@@ -32,10 +30,7 @@ def __noise_sample_generator(info_file,fs, length_seq, split):
             else:
                 num=np.random.randint(0,len(segments))
                 loaded_data, Fs=sf.read(os.path.join(head,load_data_split["recording"].loc[i],segments[num]))
-
-            if fs!=Fs:
-                print("wrong fs, resampling...")
-                data=librosa.resample(loaded_data, Fs, fs)
+            assert(fs==Fs, "wrong sampling rate")
 
             yield __extend_sample_by_repeating(loaded_data,fs,length_seq)
 
@@ -385,11 +380,7 @@ def generator_train(path_music, path_noises,split, fs=44100, seg_len_s=5, extend
         random.shuffle(train_samples)
         for file in train_samples:  
             data, samplerate = sf.read(file)
-            if samplerate!=fs: 
-                print("!!!!WRONG SAMPLE RATe!!!")
-                data=np.transpose(data)
-                data=librosa.resample(data, samplerate, 44100)
-                data=np.transpose(data)
+            assert(samplerate==fs, "wrong sampling rate")
             data_clean=data
             #Stereo to mono
             if len(data.shape)>1 :
@@ -456,7 +447,7 @@ def generator_train(path_music, path_noises,split, fs=44100, seg_len_s=5, extend
                 summed=summed.astype('float32')
                 yield tf.convert_to_tensor(summed), tf.convert_to_tensor(segment)
         
-def load_data(buffer_size, path_music_train, path_music_val,  path_noises,  fs=44100, seg_len_s=5,  extend=True, stereo=False) -> Tuple[tf.data.Dataset, tf.data.Dataset]:
+def load_data(buffer_size, path_music_train, path_music_val,  path_noises,  fs=44100, seg_len_s=5,  extend=True, stereo=False) :
     print("Generating train dataset")
     trainshape=int(fs*seg_len_s)
 
@@ -470,14 +461,14 @@ def load_data(buffer_size, path_music_train, path_music_val,  path_noises,  fs=4
 
     return dataset_train.shuffle(buffer_size), dataset_val
 
-def load_data_test(buffer_size, path_pianos_test,   path_noises,  **kwargs) -> Tuple[tf.data.Dataset]:
+def load_data_test(buffer_size, path_pianos_test,   path_noises,  **kwargs):
     print("Generating test dataset")
     segments_noisy, segments_clean=generate_test_data(path_pianos_test, path_noises, extend=True, **kwargs)
     dataset_test=tf.data.Dataset.from_tensor_slices((segments_noisy, segments_clean))
     #dataset_test=tf.data.Dataset.from_tensor_slices((segments_noisy[1:3], segments_clean[1:3]))
     #train_dataset = train.cache().shuffle(buffer_size).take(info.splits["train"].num_examples)
     return dataset_test
-def load_data_formal( path_pianos_test,   path_noises,  **kwargs) -> Tuple[tf.data.Dataset]:
+def load_data_formal( path_pianos_test,   path_noises,  **kwargs) :
     print("Generating test dataset")
     segments_noisy, segments_clean=generate_paired_data_test_formal(path_pianos_test, path_noises, extend=True, **kwargs)
     print("segments::")
@@ -487,7 +478,7 @@ def load_data_formal( path_pianos_test,   path_noises,  **kwargs) -> Tuple[tf.da
     #train_dataset = train.cache().shuffle(buffer_size).take(info.splits["train"].num_examples)
     return dataset_test
 
-def load_real_test_recordings(buffer_size, path_recordings,   **kwargs) -> Tuple[tf.data.Dataset]:
+def load_real_test_recordings(buffer_size, path_recordings,   **kwargs):
     print("Generating real test dataset")
         
     segments_noisy=generate_real_recordings_data(path_recordings, **kwargs)

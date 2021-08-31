@@ -10,7 +10,7 @@ def run(args):
     import soundfile as sf
     import numpy as np
     from tqdm import tqdm
-    import librosa
+    import scipy.signal
     
     path_experiment=str(args.path_experiment)
 
@@ -47,15 +47,16 @@ def run(args):
 
     audio=str(args.inference.audio)
     data, samplerate = sf.read(audio)
-    if samplerate!=44100: 
-        print("Resampling")
-        data=np.transpose(data)
-        data=librosa.resample(data, samplerate, 44100)
-        data=np.transpose(data)
-
+    print(data.dtype)
     #Stereo to mono
     if len(data.shape)>1:
         data=np.mean(data,axis=1)
+    
+    if samplerate!=44100: 
+        print("Resampling")
+   
+        data=scipy.signal.resample(data, int((44100  / samplerate )*len(data))+1)  
+ 
     
     
     segment_size=44101*20  #20s segments

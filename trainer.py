@@ -1,15 +1,10 @@
 
 import os
 import numpy as np
-import cv2
-import librosa
-import imageio
 import tensorflow as tf
 import soundfile as sf
-import subprocess
 from tqdm import tqdm
 import pandas as pd                                    
-from scipy.io import loadmat
 
 class Trainer():
     def __init__(self, model,  optimizer,loss,  strategy, path_experiment,  args):
