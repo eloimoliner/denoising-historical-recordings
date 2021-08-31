@@ -24,7 +24,7 @@ To install the environment through anaconda, follow the instructions:
 Run the following commands to install the pretrained weights of the two-stage U-Net model:
 
     wget ckptzipurl 
-    unzip name.zip /experiments/trained_model
+    unzip name.zip /experiments/trained_model/
     
 If the environment is installed correctly, you can denoise an audio file by running:
 
