@@ -21,13 +21,13 @@ To install the environment through anaconda, follow the instructions:
     conda activate historical_denoiser
 
 ## Denosing Recordings
-Run the following commands to install the pretrained weights of the neural network model:
+Run the following commands to install the pretrained weights of the two-stage U-Net model:
 
     wget ckptzipurl 
     unzip name.zip /experiments/trained_model
     
-
 If the environment is installed correctly, you can denoise an audio file by running:
+
     bash inference.sh $filename
     
 A ".wav" file with the denoised version, as well as the residual noise and the original signal in "mono" will be stored in the same directory as the input file.
