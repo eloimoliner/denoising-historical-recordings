@@ -11,6 +11,7 @@ Enhancing the sound quality of historical music recordings is a long-standing pr
 <img src="https://user-images.githubusercontent.com/64018465/131505025-e4530f55-fe5d-4bf4-ae64-cc9a502e5874.png" alt="Schema represention"
 width="400px"></p>
 
+Listen to our audio samples [link to url]
 ## Requirements
 You will need at least python 3.7. See ´requirements.txt´ for the required package versions.
 
