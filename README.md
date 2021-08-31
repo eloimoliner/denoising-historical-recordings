@@ -13,7 +13,7 @@ width="400px"></p>
 
 Listen to our audio samples [link to url]
 ## Requirements
-You will need at least python 3.7. See ´requirements.txt´ for the required package versions.
+You will need at least python 3.7 and CUDA 10.1 if you want to use GPU. See `requirements.txt` for the required package versions.
 
 To install the environment through anaconda, follow the instructions:
 
@@ -22,4 +22,7 @@ To install the environment through anaconda, follow the instructions:
 
 ## Denosing Recordings
 
+If the environment is installed correctly, you can denoise an audio file by running:
+    
+    bash inference.sh $filename
 ## Training
