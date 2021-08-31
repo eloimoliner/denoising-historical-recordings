@@ -23,8 +23,8 @@ To install the environment through anaconda, follow the instructions:
 ## Denosing Recordings
 Run the following commands to install the pretrained weights of the two-stage U-Net model:
 
-    wget ckptzipurl 
-    unzip name.zip /experiments/trained_model/
+    wget https://github.com/eloimoliner/denoising-historical-recordings/releases/download/v0.0/checkpoint.zip
+    unzip checkpoint.zip /experiments/trained_model/
     
 If the environment is installed correctly, you can denoise an audio file by running:
 
