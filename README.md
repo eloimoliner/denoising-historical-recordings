@@ -20,7 +20,7 @@ To install the environment through anaconda, follow the instructions:
     conda env update -f environment.yml
     conda activate historical_denoiser
 
-## Denosing Recordings
+## Denoising Recordings
 Run the following commands to install the pretrained weights of the two-stage U-Net model:
 
     wget https://github.com/eloimoliner/denoising-historical-recordings/releases/download/v0.0/checkpoint.zip
@@ -32,3 +32,4 @@ If the environment is installed correctly, you can denoise an audio file by runn
     
 A ".wav" file with the denoised version, as well as the residual noise and the original signal in "mono", will be stored in the same directory as the input file.
 ## Training
+TODO
