@@ -21,8 +21,10 @@ To install the environment through anaconda, follow the instructions:
     conda activate historical_denoiser
 
 ## Denoising Recordings
-Run the following commands to install the pretrained weights of the two-stage U-Net model:
+Run the following commands to clone the repository and install the pretrained weights of the two-stage U-Net model:
 
+    git clone https://github.com/eloimoliner/denoising-historical-recordings.git
+    cd denoising-historical-recordings
     wget https://github.com/eloimoliner/denoising-historical-recordings/releases/download/v0.0/checkpoint.zip
     unzip checkpoint.zip /experiments/trained_model/
     
