@@ -1,6 +1,6 @@
 # A two-stage U-Net for high-fidelity denoising of historical recordings
 
-Official repository of the paper:
+Official repository of the paper (not submitted yet):
 
 > E. Moliner and V. Välimäki,, "A two-stage U-Net for high-fidelity denosing of historical recordinds", in Proc. IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), Singapore, May, 2022
 
