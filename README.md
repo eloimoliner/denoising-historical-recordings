@@ -26,7 +26,7 @@ Run the following commands to clone the repository and install the pretrained we
     git clone https://github.com/eloimoliner/denoising-historical-recordings.git
     cd denoising-historical-recordings
     wget https://github.com/eloimoliner/denoising-historical-recordings/releases/download/v0.0/checkpoint.zip
-    unzip checkpoint.zip /experiments/trained_model/
+    unzip checkpoint.zip -d /experiments/trained_model/
     
 If the environment is installed correctly, you can denoise an audio file by running:
 
