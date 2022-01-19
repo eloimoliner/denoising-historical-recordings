@@ -59,7 +59,7 @@ def run(args):
  
     
     
-    segment_size=44101*20  #20s segments
+    segment_size=44100*20  #20s segments
 
     length_data=len(data)
     overlapsize=2048 #samples (46 ms)
