@@ -2,7 +2,7 @@
 
 Official repository of the paper:
 
-> E. Moliner and V. Välimäki,, "A two-stage U-Net for high-fidelity denosing of historical recordinds", submitted to IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), Singapore, May, 2022
+> E. Moliner and V. Välimäki,, "A two-stage U-Net for high-fidelity denosing of historical recordings", submitted to IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), Singapore, May, 2022
 
 ## Abstract
 Enhancing the sound quality of historical music recordings is a long-standing problem. This paper presents a novel denoising method based on a fully-convolutional deep neural network. A two-stage U-Net model architecture is designed to model and suppress the degradations with high fidelity. The method processes the time-frequency representation of audio, and is trained using realistic noisy data to jointly remove hiss, clicks, thumps, and other common additive disturbances from old analog discs. The proposed model outperforms previous methods in both objective and subjective metrics. The results of a formal blind listening test show that the method can denoise real gramophone recordings with an excellent quality. This study shows the importance of realistic training data and the power of deep learning in audio restoration.
@@ -35,3 +35,10 @@ If the environment is installed correctly, you can denoise an audio file by runn
 A ".wav" file with the denoised version, as well as the residual noise and the original signal in "mono", will be generated in the same directory as the input file.
 ## Training
 TODO
+## Remarks
+
+The trained model is specialized in denoising gramophone recordings, such as the ones included in this collection https://archive.org/details/georgeblood. It has shown to be robust to a wide range of different noises, but it may produce some artifacts if you try to inference in something completely different.
+
+We used classical music as training data, so it is expected to work better with this genre than any other. Nevertheless, we also experienced good results with other kinds of non-classical music like, for instance, some old jazz recordings.
+
+
