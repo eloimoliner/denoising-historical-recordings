@@ -1,7 +1,7 @@
 defaults:
   - dset: dataset
 
-path_experiment: "non-specified_name" #there should be a better way to do this 
+path_experiment: "experiments/trained_model" #there should be a better way to do this 
 tensorboard_logs: "/scratch/work/molinee2/tensorboard_logs/unet_historical" #path with tensorboard
 # Dataset related
 fs: 44100  #default is 44100, better NEVER change
