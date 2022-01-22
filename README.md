@@ -24,7 +24,10 @@ To install the environment through anaconda, follow the instructions:
     conda activate historical_denoiser
 
 ## Denoising Recordings
-Run the following commands to clone the repository and install the pretrained weights of the two-stage U-Net model:
+
+You can denoise your recordings in the cloud using the Colab notebook. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eloimoliner/denoising-historical-recordings/blob/colab/colab/demo.ipynb)
+
+Otherwise, run the following commands to clone the repository and install the pretrained weights of the two-stage U-Net model:
 
     git clone https://github.com/eloimoliner/denoising-historical-recordings.git
     cd denoising-historical-recordings
