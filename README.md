@@ -13,7 +13,7 @@ width="400px"></p>
 
 Listen to our [audio samples](http://research.spa.aalto.fi/publications/papers/icassp22-denoising/)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eloimoliner/denoising-historical-recordings/blob/colab/colab/demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/github/eloimoliner/denoising-historical-recordings/blob/master/colab/demo.ipynb)
 
 ## Requirements
 You will need at least python 3.7 and CUDA 10.1 if you want to use GPU. See `requirements.txt` for the required package versions.
@@ -25,7 +25,7 @@ To install the environment through anaconda, follow the instructions:
 
 ## Denoising Recordings
 
-You can denoise your recordings in the cloud using the Colab notebook. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eloimoliner/denoising-historical-recordings/blob/colab/colab/demo.ipynb)
+You can denoise your recordings in the cloud using the Colab notebook. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eloimoliner/denoising-historical-recordings/blob/master/colab/demo.ipynb)
 
 Otherwise, run the following commands to clone the repository and install the pretrained weights of the two-stage U-Net model:
 
