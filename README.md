@@ -13,7 +13,7 @@ width="400px"></p>
 
 Listen to our [audio samples](http://research.spa.aalto.fi/publications/papers/icassp22-denoising/)
 
-[![Open In Colab][https://colab.research.google.com/assets/colab-badge.svg](https://colab.research.google.com/github/eloimoliner/denoising-historical-recordings/blob/master/colab/demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eloimoliner/denoising-historical-recordings/blob/master/colab/demo.ipynb)
 
 ## Requirements
 You will need at least python 3.7 and CUDA 10.1 if you want to use GPU. See `requirements.txt` for the required package versions.
