@@ -1,5 +1,5 @@
 #!/bin/bash
 
 
-python inference.py inference.audio=$1
+python inference.py inference.audio="$1"
 
