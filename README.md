@@ -32,12 +32,12 @@ Otherwise, run the following commands to clone the repository and install the pr
     git clone https://github.com/eloimoliner/denoising-historical-recordings.git
     cd denoising-historical-recordings
     wget https://github.com/eloimoliner/denoising-historical-recordings/releases/download/v0.0/checkpoint.zip
-    unzip checkpoint.zip -d /experiments/trained_model/
-    
+    unzip checkpoint.zip -d ./experiments/trained_model/
+
 If the environment is installed correctly, you can denoise an audio file by running:
 
     bash inference.sh "file name"
-    
+
 A ".wav" file with the denoised version, as well as the residual noise and the original signal in "mono", will be generated in the same directory as the input file.
 ## Training
 To retrain the model, follow the instructions:
